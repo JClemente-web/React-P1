@@ -1,0 +1,160 @@
+.container {
+  min-height: 100vh;
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 430px;
+  padding: 48px 48px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  margin-bottom: 8px;
+}
+
+.logoImg {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.welcomeText {
+  color: #b3b3b3;
+  font-size: 1rem;
+  text-align: center;
+  margin: 0;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label {
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border-radius: 4px;
+  border: 1px solid #535353;
+  background-color: #121212;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #ffffff;
+}
+
+.input::placeholder {
+  color: #727272;
+}
+
+.erro {
+  color: #f15e6c;
+  font-size: 0.875rem;
+  text-align: center;
+  margin: 0;
+  padding: 8px 12px;
+  background: rgba(241, 94, 108, 0.1);
+  border-radius: 4px;
+}
+
+.button {
+  width: 100%;
+  padding: 14px 32px;
+  border-radius: 500px;
+  background-color: #1db954;
+  color: #000000;
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.button:hover {
+  background-color: #1ed760;
+  transform: scale(1.03);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #535353;
+  font-size: 0.8125rem;
+}
+
+.divider hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #282828;
+}
+
+.signup {
+  color: #b3b3b3;
+  font-size: 0.875rem;
+  text-align: center;
+  margin: 0;
+}
+
+.link {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #1db954;
+}
+
+.hint {
+  color: #535353;
+  font-size: 0.75rem;
+  text-align: center;
+  margin: 0;
+}
