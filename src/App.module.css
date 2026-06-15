@@ -1,105 +1,144 @@
-/* ===== Layout ===== */
+/* ===== PAGE / BACKGROUND ===== */
 .page {
   min-height: 100vh;
   background-color: #121212;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 24px 16px;
+  align-items: flex-start;
+  padding: 40px 16px 80px;
 }
 
+/* ===== CARD ===== */
 .card {
-  background-color: #121212;
-  border-radius: 8px;
-  padding: 40px 48px 56px;
   width: 100%;
-  max-width: 480px;
+  max-width: 450px;
+  background-color: #121212;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0;
 }
 
-/* ===== Logo ===== */
-.logo {
+/* ===== LOGO ===== */
+.logoWrap {
   margin-bottom: 32px;
 }
 
-/* ===== Title ===== */
+.logoSvg {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+/* ===== TITLE ===== */
 .title {
   color: #ffffff;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 900;
   text-align: center;
-  margin-bottom: 32px;
   letter-spacing: -0.5px;
+  margin-bottom: 32px;
+  line-height: 1.2;
 }
 
-/* ===== Social Buttons ===== */
-.socialButtons {
+/* ===== SUBTITLE (logged in) ===== */
+.subtitle {
+  color: #b3b3b3;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.green {
+  color: #1db954;
+}
+
+.successIcon {
+  font-size: 3rem;
+  margin-bottom: 24px;
+}
+
+/* ===== SOCIAL BUTTONS ===== */
+.socials {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
-.socialBtn {
+.btnSocial {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 12px;
-  width: 100%;
-  padding: 14px 20px;
-  background-color: transparent;
-  border: 1px solid #727272;
+  padding: 13px 28px;
   border-radius: 500px;
+  border: 1px solid #727272;
+  background: transparent;
   color: #ffffff;
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
   font-weight: 700;
+  font-family: inherit;
   cursor: pointer;
-  transition: border-color 0.2s, background-color 0.2s;
-  letter-spacing: 0.05em;
+  transition: border-color 0.15s, transform 0.1s;
+  position: relative;
+  margin-bottom: 0;
 }
 
-.socialBtn:hover {
+.btnSocial:hover {
   border-color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.05);
+  transform: scale(1.02);
 }
 
-/* ===== Divider ===== */
+.btnSocial span {
+  flex: 1;
+  text-align: center;
+  margin-right: 20px;
+}
+
+/* ===== DIVIDER ===== */
 .divider {
+  width: 100%;
   display: flex;
   align-items: center;
-  width: 100%;
-  margin-bottom: 24px;
   gap: 12px;
+  margin: 28px 0;
 }
 
-.dividerLine {
+.divider span {
   flex: 1;
   height: 1px;
   background-color: #292929;
 }
 
-.dividerText {
+.divider p {
   color: #ffffff;
   font-size: 0.875rem;
   font-weight: 700;
+  white-space: nowrap;
 }
 
-/* ===== Form ===== */
+/* ===== FORM ===== */
 .form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 20px;
 }
 
+/* ===== FIELD ===== */
 .field {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .label {
@@ -108,186 +147,162 @@
   font-weight: 700;
 }
 
-.input {
-  width: 100%;
-  padding: 14px 16px;
-  background-color: #121212;
-  border: 1px solid #727272;
-  border-radius: 4px;
-  color: #ffffff;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.input::placeholder {
-  color: #a7a7a7;
-}
-
-.input:focus {
-  border-color: #ffffff;
-}
-
-.inputError {
-  border-color: #e91429;
-}
-
-.inputError:focus {
-  border-color: #e91429;
-}
-
-/* ===== Password toggle ===== */
-.passwordWrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.inputPassword {
-  padding-right: 48px;
-}
-
-.eyeBtn {
-  position: absolute;
-  right: 14px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.1rem;
-  line-height: 1;
-  padding: 0;
-  display: flex;
-  align-items: center;
-}
-
-/* ===== Error Box ===== */
-.errorBox {
-  background-color: rgba(233, 20, 41, 0.12);
-  border: 1px solid rgba(233, 20, 41, 0.4);
-  border-radius: 4px;
-  color: #ff6b7a;
-  font-size: 0.875rem;
-  font-weight: 500;
-  padding: 10px 14px;
-  text-align: center;
-}
-
-/* ===== Login Button ===== */
-.loginBtn {
-  width: 100%;
-  padding: 15px;
-  background-color: #1db954;
-  border: none;
-  border-radius: 500px;
-  color: #000000;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
-  margin-top: 8px;
-}
-
-.loginBtn:hover:not(:disabled) {
-  background-color: #1ed760;
-  transform: scale(1.02);
-}
-
-.loginBtn:active:not(:disabled) {
-  transform: scale(0.98);
-}
-
-.loginBtn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* ===== Forgot Password ===== */
 .forgotLink {
   color: #ffffff;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   text-decoration: underline;
-  text-underline-offset: 3px;
-  margin-bottom: 24px;
-  cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.15s;
 }
 
 .forgotLink:hover {
   color: #1db954;
 }
 
-/* ===== HR ===== */
-.hr {
+/* ===== INPUT ===== */
+.input {
   width: 100%;
-  border: none;
-  border-top: 1px solid #292929;
-  margin-bottom: 24px;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border-radius: 4px;
+  border: 1px solid #727272;
+  background-color: #121212;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  outline: none;
 }
 
-/* ===== Sign Up ===== */
-.signup {
-  color: #a7a7a7;
+.input:hover {
+  border-color: #ffffff;
+}
+
+.input:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.08);
+}
+
+.input::placeholder {
+  color: #6a6a6a;
+}
+
+.inputError {
+  border-color: #e91429 !important;
+}
+
+/* ===== PASSWORD WRAPPER ===== */
+.passwordWrap {
+  position: relative;
+}
+
+.passwordWrap .input {
+  padding-right: 52px;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 4px;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+
+.eyeBtn:hover {
+  opacity: 1;
+}
+
+/* ===== ERROR BOX ===== */
+.erroBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background-color: rgba(233, 20, 41, 0.12);
+  border: 1px solid #e91429;
+  border-radius: 4px;
+}
+
+.erroIcon {
+  color: #e91429;
   font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.erroText {
+  color: #e91429;
+  font-size: 0.875rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ===== PRIMARY BUTTON ===== */
+.btnPrimary {
+  width: 100%;
+  padding: 15px 32px;
+  border-radius: 500px;
+  background-color: #1db954;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background-color 0.15s, transform 0.1s;
+  margin-top: 4px;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background-color: #1ed760;
+  transform: scale(1.03);
+}
+
+.btnPrimary:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btnPrimary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== HINT ===== */
+.hint {
+  color: #6a6a6a;
+  font-size: 0.75rem;
   text-align: center;
+  margin-top: 16px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  width: 100%;
+  border-top: 1px solid #292929;
+  margin-top: 28px;
+  padding-top: 28px;
+  text-align: center;
+}
+
+.footer p {
+  color: #b3b3b3;
+  font-size: 0.9375rem;
 }
 
 .signupLink {
   color: #ffffff;
   font-weight: 700;
   text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.15s;
 }
 
 .signupLink:hover {
   color: #1db954;
-}
-
-/* ===== Success Screen ===== */
-.successPage {
-  min-height: 100vh;
-  background-color: #121212;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 24px;
-}
-
-.successTitle {
-  color: #ffffff;
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.successSub {
-  color: #a7a7a7;
-  font-size: 1rem;
-}
-
-.successSub strong {
-  color: #ffffff;
-}
-
-.logoutBtn {
-  margin-top: 24px;
-  padding: 12px 32px;
-  background-color: transparent;
-  border: 1px solid #727272;
-  border-radius: 500px;
-  color: #ffffff;
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: border-color 0.2s, background-color 0.2s;
-}
-
-.logoutBtn:hover {
-  border-color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.05);
-}
+  }
