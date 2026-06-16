@@ -10,7 +10,7 @@ Demonstrar o uso dos hooks fundamentais do React:
 
 - **`useState`** — gerenciamento de estado local (campos do formulário, erros, loading, visibilidade da senha)
 - **`useEffect`** — efeito colateral que observa mudanças na variável `tentativa` para verificar as credenciais do usuário
-- **CSS Modules** — estilização com escopo isolado por componente (`App.module.css`)
+- **styled-components** — estilização com CSS-in-JS, componentes estilizados (`App.styles.js`) e `createGlobalStyle` para o reset global
 
 ---
 
@@ -32,9 +32,9 @@ Demonstrar o uso dos hooks fundamentais do React:
 
 | Tecnologia | Versão |
 |---|---|
-| React | 18.3.1 |
-| Vite | 6.0.1 |
-| CSS Modules | — |
+| React | 18.2.0 |
+| Vite | 5.2.0 |
+| styled-components | 6.4.2 |
 
 ---
 
@@ -48,9 +48,8 @@ react-p1/
 ├── .gitignore
 └── src/
     ├── main.jsx         # Ponto de entrada da aplicação
-    ├── index.css        # Reset global e fonte
     ├── App.jsx          # Componente principal (toda a lógica)
-    └── App.module.css   # Estilos com CSS Modules
+    └── App.styles.js    # Estilos com styled-components + createGlobalStyle
 ```
 
 ---
