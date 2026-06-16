@@ -232,16 +232,13 @@ function App() {
           </Form>
 
           <Hint>
-            Dica: <strong>{USUARIO_VALIDO}</strong> / <strong>{SENHA_VALIDA}</strong>
+            credenciais de teste: usuario@spotify.com / 1234
           </Hint>
 
-          {/* Rodapé */}
           <Footer>
             <p>
               Não tem uma conta?{' '}
-              <SignupLink href="#">
-                Cadastre-se no Spotify
-              </SignupLink>
+              <SignupLink href="#">Cadastre-se no Spotify</SignupLink>
             </p>
           </Footer>
         </Card>
