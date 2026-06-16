@@ -1,18 +1,53 @@
 import { useState, useEffect } from 'react'
-import styles from './App.module.css'
+import styled from 'styled-components'
+import {
+  GlobalStyle,
+  Page,
+  Card,
+  LogoWrap,
+  Title,
+  Subtitle,
+  Green,
+  SuccessIcon,
+  Socials,
+  BtnSocial,
+  Divider,
+  Form,
+  Field,
+  LabelRow,
+  Label,
+  ForgotLink,
+  Input,
+  PasswordWrap,
+  PasswordInput,
+  EyeBtn,
+  ErroBox,
+  ErroIcon,
+  ErroText,
+  BtnPrimary,
+  Hint,
+  Footer,
+  SignupLink,
+} from './App.styles'
 
 // Credenciais válidas para o clone
 const USUARIO_VALIDO = 'usuario@spotify.com'
 const SENHA_VALIDA = '1234'
 
-const SpotifyLogo = () => (
-  <svg viewBox="0 0 167.2 167.2" className={styles.logoSvg} aria-label="Spotify">
+const SpotifyLogoIcon = ({ className }) => (
+  <svg viewBox="0 0 167.2 167.2" className={className} aria-label="Spotify">
     <path
       fill="#ffffff"
       d="M83.6 0C37.4 0 0 37.4 0 83.6s37.4 83.6 83.6 83.6 83.6-37.4 83.6-83.6S129.8 0 83.6 0zm38.4 120.5c-1.5 2.5-4.7 3.2-7.1 1.7C95.1 112 75 110 51.6 115c-2.9.6-5.8-1.2-6.4-4.1-.6-2.9 1.2-5.8 4.1-6.4 25.7-5.5 47.8-3.1 65.5 8.9 2.4 1.5 3.2 4.7 1.7 7.1zm10.2-22.7c-1.9 3.1-5.9 4-9 2.1-16.2-9.9-40.8-12.8-59.9-7-2.5.8-5.1-.6-5.9-3.1-.8-2.5.6-5.1 3.1-5.9 21.9-6.6 49.1-3.4 67.8 8 3 1.9 4 5.9 2.1 9h-.2zm.9-23.6c-19.4-11.5-51.4-12.6-69.9-7-3 .9-6.1-.7-7-3.7-.9-3 .7-6.1 3.7-7 21.3-6.4 56.7-5.2 79.1 8.1 2.7 1.6 3.6 5.1 2 7.8-1.6 2.7-5.1 3.6-7.8 2h-.1z"
     />
   </svg>
 )
+
+const SpotifyLogo = styled(SpotifyLogoIcon)`
+  width: 48px;
+  height: 48px;
+  display: block;
+`
 
 const GoogleIcon = () => (
   <svg viewBox="0 0 24 24" width="20" height="20">
@@ -85,129 +120,133 @@ function App() {
 
   if (logado) {
     return (
-      <div className={styles.page}>
-        <div className={styles.card}>
-          <SpotifyLogo />
-          <h1 className={styles.title}>Logado com sucesso!</h1>
-          <p className={styles.subtitle}>
-            Bem-vindo de volta, <strong className={styles.green}>{login}</strong>
-          </p>
-          <div className={styles.successIcon}>🎵</div>
-          <button className={styles.btnPrimary} onClick={handleLogout}>
-            Sair
-          </button>
-        </div>
-      </div>
+      <>
+        <GlobalStyle />
+        <Page>
+          <Card>
+            <SpotifyLogo />
+            <Title>Logado com sucesso!</Title>
+            <Subtitle>
+              Bem-vindo de volta, <Green>{login}</Green>
+            </Subtitle>
+            <SuccessIcon>🎵</SuccessIcon>
+            <BtnPrimary onClick={handleLogout}>
+              Sair
+            </BtnPrimary>
+          </Card>
+        </Page>
+      </>
     )
   }
 
   return (
-    <div className={styles.page}>
-      <div className={styles.card}>
-        {/* Logo */}
-        <div className={styles.logoWrap}>
-          <SpotifyLogo />
-        </div>
+    <>
+      <GlobalStyle />
+      <Page>
+        <Card>
+          {/* Logo */}
+          <LogoWrap>
+            <SpotifyLogo />
+          </LogoWrap>
 
-        <h1 className={styles.title}>Entrar no Spotify</h1>
+          <Title>Entrar no Spotify</Title>
 
-        {/* Botões sociais */}
-        <div className={styles.socials}>
-          <button type="button" className={styles.btnSocial}>
-            <GoogleIcon />
-            <span>Continuar com o Google</span>
-          </button>
-          <button type="button" className={styles.btnSocial}>
-            <FacebookIcon />
-            <span>Continuar com o Facebook</span>
-          </button>
-          <button type="button" className={styles.btnSocial}>
-            <AppleIcon />
-            <span>Continuar com a Apple</span>
-          </button>
-        </div>
+          {/* Botões sociais */}
+          <Socials>
+            <BtnSocial type="button">
+              <GoogleIcon />
+              <span>Continuar com o Google</span>
+            </BtnSocial>
+            <BtnSocial type="button">
+              <FacebookIcon />
+              <span>Continuar com o Facebook</span>
+            </BtnSocial>
+            <BtnSocial type="button">
+              <AppleIcon />
+              <span>Continuar com a Apple</span>
+            </BtnSocial>
+          </Socials>
 
-        {/* Divider */}
-        <div className={styles.divider}>
-          <span />
-          <p>ou</p>
-          <span />
-        </div>
+          {/* Divider */}
+          <Divider>
+            <span />
+            <p>ou</p>
+            <span />
+          </Divider>
 
-        {/* Formulário */}
-        <form onSubmit={handleSubmit} className={styles.form} noValidate>
-          <div className={styles.field}>
-            <label htmlFor="login" className={styles.label}>
-              E-mail ou nome de usuário
-            </label>
-            <input
-              id="login"
-              type="text"
-              value={login}
-              onChange={e => { setLogin(e.target.value); setErro('') }}
-              className={`${styles.input} ${erro ? styles.inputError : ''}`}
-              placeholder="E-mail ou nome de usuário"
-              autoComplete="username"
-            />
-          </div>
-
-          <div className={styles.field}>
-            <div className={styles.labelRow}>
-              <label htmlFor="senha" className={styles.label}>Senha</label>
-              <a href="#" className={styles.forgotLink}>Esqueceu a senha?</a>
-            </div>
-            <div className={styles.passwordWrap}>
-              <input
-                id="senha"
-                type={senhaVisivel ? 'text' : 'password'}
-                value={senha}
-                onChange={e => { setSenha(e.target.value); setErro('') }}
-                className={`${styles.input} ${erro ? styles.inputError : ''}`}
-                placeholder="Senha"
-                autoComplete="current-password"
+          {/* Formulário */}
+          <Form onSubmit={handleSubmit} noValidate>
+            <Field>
+              <Label htmlFor="login">
+                E-mail ou nome de usuário
+              </Label>
+              <Input
+                id="login"
+                type="text"
+                value={login}
+                onChange={e => { setLogin(e.target.value); setErro('') }}
+                $hasError={!!erro}
+                placeholder="E-mail ou nome de usuário"
+                autoComplete="username"
               />
-              <button
-                type="button"
-                className={styles.eyeBtn}
-                onClick={() => setSenhaVisivel(v => !v)}
-                aria-label={senhaVisivel ? 'Ocultar senha' : 'Mostrar senha'}
-              >
-                {senhaVisivel ? '🙈' : '👁️'}
-              </button>
-            </div>
-          </div>
+            </Field>
 
-          {erro && (
-            <div className={styles.erroBox}>
-              <span className={styles.erroIcon}>⚠</span>
-              <p className={styles.erroText}>{erro}</p>
-            </div>
-          )}
+            <Field>
+              <LabelRow>
+                <Label htmlFor="senha">Senha</Label>
+                <ForgotLink href="#">Esqueceu a senha?</ForgotLink>
+              </LabelRow>
+              <PasswordWrap>
+                <PasswordInput
+                  id="senha"
+                  type={senhaVisivel ? 'text' : 'password'}
+                  value={senha}
+                  onChange={e => { setSenha(e.target.value); setErro('') }}
+                  $hasError={!!erro}
+                  placeholder="Senha"
+                  autoComplete="current-password"
+                />
+                <EyeBtn
+                  type="button"
+                  onClick={() => setSenhaVisivel(v => !v)}
+                  aria-label={senhaVisivel ? 'Ocultar senha' : 'Mostrar senha'}
+                >
+                  {senhaVisivel ? '🙈' : '👁️'}
+                </EyeBtn>
+              </PasswordWrap>
+            </Field>
 
-          <button
-            type="submit"
-            className={styles.btnPrimary}
-            disabled={loading}
-          >
-            {loading ? 'Entrando…' : 'Entrar'}
-          </button>
-        </form>
+            {erro && (
+              <ErroBox>
+                <ErroIcon>⚠</ErroIcon>
+                <ErroText>{erro}</ErroText>
+              </ErroBox>
+            )}
 
-        <p className={styles.hint}>
-          Dica: <strong>{USUARIO_VALIDO}</strong> / <strong>{SENHA_VALIDA}</strong>
-        </p>
+            <BtnPrimary
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? 'Entrando…' : 'Entrar'}
+            </BtnPrimary>
+          </Form>
 
-        {/* Rodapé */}
-        <div className={styles.footer}>
-          <p>
-            Não tem uma conta?{' '}
-            <a href="#" className={styles.signupLink}>
-              Cadastre-se no Spotify
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
+          <Hint>
+            Dica: <strong>{USUARIO_VALIDO}</strong> / <strong>{SENHA_VALIDA}</strong>
+          </Hint>
+
+          {/* Rodapé */}
+          <Footer>
+            <p>
+              Não tem uma conta?{' '}
+              <SignupLink href="#">
+                Cadastre-se no Spotify
+              </SignupLink>
+            </p>
+          </Footer>
+        </Card>
+      </Page>
+    </>
   )
 }
 

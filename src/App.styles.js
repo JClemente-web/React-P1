@@ -1,15 +1,38 @@
-/* ===== PAGE / BACKGROUND ===== */
-.page {
+import styled, { createGlobalStyle } from 'styled-components'
+
+export const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #121212;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
+  }
+`
+
+export const Page = styled.div`
   min-height: 100vh;
   background-color: #121212;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding: 40px 16px 80px;
-}
+`
 
-/* ===== CARD ===== */
-.card {
+export const Card = styled.div`
   width: 100%;
   max-width: 450px;
   background-color: #121212;
@@ -17,21 +40,13 @@
   flex-direction: column;
   align-items: center;
   gap: 0;
-}
+`
 
-/* ===== LOGO ===== */
-.logoWrap {
+export const LogoWrap = styled.div`
   margin-bottom: 32px;
-}
+`
 
-.logoSvg {
-  width: 48px;
-  height: 48px;
-  display: block;
-}
-
-/* ===== TITLE ===== */
-.title {
+export const Title = styled.h1`
   color: #ffffff;
   font-size: 2rem;
   font-weight: 900;
@@ -39,35 +54,33 @@
   letter-spacing: -0.5px;
   margin-bottom: 32px;
   line-height: 1.2;
-}
+`
 
-/* ===== SUBTITLE (logged in) ===== */
-.subtitle {
+export const Subtitle = styled.p`
   color: #b3b3b3;
   font-size: 1rem;
   text-align: center;
   margin-bottom: 24px;
-}
+`
 
-.green {
+export const Green = styled.strong`
   color: #1db954;
-}
+`
 
-.successIcon {
+export const SuccessIcon = styled.div`
   font-size: 3rem;
   margin-bottom: 24px;
-}
+`
 
-/* ===== SOCIAL BUTTONS ===== */
-.socials {
+export const Socials = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-bottom: 0;
-}
+`
 
-.btnSocial {
+export const BtnSocial = styled.button`
   width: 100%;
   display: flex;
   align-items: center;
@@ -84,123 +97,114 @@
   transition: border-color 0.15s, transform 0.1s;
   position: relative;
   margin-bottom: 0;
-}
 
-.btnSocial:hover {
-  border-color: #ffffff;
-  transform: scale(1.02);
-}
+  &:hover {
+    border-color: #ffffff;
+    transform: scale(1.02);
+  }
 
-.btnSocial span {
-  flex: 1;
-  text-align: center;
-  margin-right: 20px;
-}
+  span {
+    flex: 1;
+    text-align: center;
+    margin-right: 20px;
+  }
+`
 
-/* ===== DIVIDER ===== */
-.divider {
+export const Divider = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   gap: 12px;
   margin: 28px 0;
-}
 
-.divider span {
-  flex: 1;
-  height: 1px;
-  background-color: #292929;
-}
+  span {
+    flex: 1;
+    height: 1px;
+    background-color: #292929;
+  }
 
-.divider p {
-  color: #ffffff;
-  font-size: 0.875rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
+  p {
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+`
 
-/* ===== FORM ===== */
-.form {
+export const Form = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
+`
 
-/* ===== FIELD ===== */
-.field {
+export const Field = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 100%;
-}
+`
 
-.labelRow {
+export const LabelRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+`
 
-.label {
+export const Label = styled.label`
   color: #ffffff;
   font-size: 0.875rem;
   font-weight: 700;
-}
+`
 
-.forgotLink {
+export const ForgotLink = styled.a`
   color: #ffffff;
   font-size: 0.8125rem;
   font-weight: 700;
   text-decoration: underline;
   transition: color 0.15s;
-}
 
-.forgotLink:hover {
-  color: #1db954;
-}
+  &:hover {
+    color: #1db954;
+  }
+`
 
-/* ===== INPUT ===== */
-.input {
+export const Input = styled.input`
   width: 100%;
   box-sizing: border-box;
   padding: 14px 16px;
   border-radius: 4px;
-  border: 1px solid #727272;
+  border: 1px solid ${(props) => (props.$hasError ? '#e91429' : '#727272')};
   background-color: #121212;
   color: #ffffff;
   font-size: 1rem;
   font-family: inherit;
   transition: border-color 0.15s;
   outline: none;
-}
 
-.input:hover {
-  border-color: #ffffff;
-}
+  &:hover {
+    border-color: ${(props) => (props.$hasError ? '#e91429' : '#ffffff')};
+  }
 
-.input:focus {
-  border-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(255,255,255,0.08);
-}
+  &:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+  }
 
-.input::placeholder {
-  color: #6a6a6a;
-}
+  &::placeholder {
+    color: #6a6a6a;
+  }
+`
 
-.inputError {
-  border-color: #e91429 !important;
-}
-
-/* ===== PASSWORD WRAPPER ===== */
-.passwordWrap {
+export const PasswordWrap = styled.div`
   position: relative;
-}
+`
 
-.passwordWrap .input {
+export const PasswordInput = styled(Input)`
   padding-right: 52px;
-}
+`
 
-.eyeBtn {
+export const EyeBtn = styled.button`
   position: absolute;
   right: 12px;
   top: 50%;
@@ -213,14 +217,13 @@
   line-height: 1;
   opacity: 0.7;
   transition: opacity 0.15s;
-}
 
-.eyeBtn:hover {
-  opacity: 1;
-}
+  &:hover {
+    opacity: 1;
+  }
+`
 
-/* ===== ERROR BOX ===== */
-.erroBox {
+export const ErroBox = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -228,23 +231,22 @@
   background-color: rgba(233, 20, 41, 0.12);
   border: 1px solid #e91429;
   border-radius: 4px;
-}
+`
 
-.erroIcon {
+export const ErroIcon = styled.span`
   color: #e91429;
   font-size: 1rem;
   flex-shrink: 0;
-}
+`
 
-.erroText {
+export const ErroText = styled.p`
   color: #e91429;
   font-size: 0.875rem;
   margin: 0;
   line-height: 1.4;
-}
+`
 
-/* ===== PRIMARY BUTTON ===== */
-.btnPrimary {
+export const BtnPrimary = styled.button`
   width: 100%;
   padding: 15px 32px;
   border-radius: 500px;
@@ -258,51 +260,49 @@
   letter-spacing: 1px;
   transition: background-color 0.15s, transform 0.1s;
   margin-top: 4px;
-}
 
-.btnPrimary:hover:not(:disabled) {
-  background-color: #1ed760;
-  transform: scale(1.03);
-}
+  &:hover:not(:disabled) {
+    background-color: #1ed760;
+    transform: scale(1.03);
+  }
 
-.btnPrimary:active:not(:disabled) {
-  transform: scale(0.97);
-}
+  &:active:not(:disabled) {
+    transform: scale(0.97);
+  }
 
-.btnPrimary:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+`
 
-/* ===== HINT ===== */
-.hint {
+export const Hint = styled.p`
   color: #6a6a6a;
   font-size: 0.75rem;
   text-align: center;
   margin-top: 16px;
-}
+`
 
-/* ===== FOOTER ===== */
-.footer {
+export const Footer = styled.div`
   width: 100%;
   border-top: 1px solid #292929;
   margin-top: 28px;
   padding-top: 28px;
   text-align: center;
-}
 
-.footer p {
-  color: #b3b3b3;
-  font-size: 0.9375rem;
-}
+  p {
+    color: #b3b3b3;
+    font-size: 0.9375rem;
+  }
+`
 
-.signupLink {
+export const SignupLink = styled.a`
   color: #ffffff;
   font-weight: 700;
   text-decoration: underline;
   transition: color 0.15s;
-}
 
-.signupLink:hover {
-  color: #1db954;
-}
+  &:hover {
+    color: #1db954;
+  }
+`
